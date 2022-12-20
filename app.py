@@ -288,6 +288,8 @@ def sla_category(cat):
         return 'homework questions'
     elif cat == 'Int Organizational Issues':
         return 'organizational issues'
+    elif cat == 'Organizational questions':
+        return 'organizational questions'
     elif cat == 'Int Technical issues':
         return 'technical issues'
     elif cat == 'Int Refunds':
@@ -844,15 +846,15 @@ pivot = pivot.style.format('{:.0}')\
 st.dataframe(pivot)
 
 
-df10 = df[['ticket number','agent','topics', 'subtopics', '+5']]
+#df10 = df[['ticket number','agent','topics', 'subtopics', '+5']]
 
 st.text( f"Total tickets with sla +5 minutes: {len(df8)}")
 
 #st.text( f"Total tickets with sla +5 minutes + non answered: {len(df10)}")
 
-df10.sort_values(by='agent', ascending=True, inplace=True)
+#df10.sort_values(by='agent', ascending=True, inplace=True)
 
-st.dataframe(df10)
+st.dataframe(df8)
 
 
 
