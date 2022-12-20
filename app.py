@@ -707,7 +707,7 @@ pivot.fillna(0, inplace=True)
 #HEATMAP
 
 pivot = pivot.style.format('{:.0}')\
-.format('{:.0f}', subset=['total'])\
+.format('{:.0f}')\
 .background_gradient(cmap='ocean_r')
 
 
