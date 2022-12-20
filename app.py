@@ -848,7 +848,7 @@ df10 = df[['ticket number','agent','topics', 'subtopics', '+5']]
 
 st.text( f"Total tickets with sla +5 minutes: {len(df8)}")
 
-st.text( f"Total tickets with sla +5 minutes + non answered: {len(df8)}")
+st.text( f"Total tickets with sla +5 minutes + non answered: {len(df10)}")
 
 df10.sort_values(by='agent', ascending=True, inplace=True)
 
