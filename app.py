@@ -142,8 +142,10 @@ df['sla cat'] = df['date of the first response'].apply(sla_category)
 sla5 = df[df['sla cat'] == '5 minutes']['sla cat'].count()
 
 
+sla55 = df[df['sla cat'] == '5 minutes']['sla cat'].count()
+#print(sla55)
 
-
+#display(HTML(f"<li><span> SLA 5 minutes met {sla55} tickets, which is {sla55 / len(l):.0%}.</li></span>"))
 
 
 
@@ -194,7 +196,12 @@ with middle_column:
     st.subheader(f"{meantime_str}")
 with right_column:
     st.subheader("5 min SLA")
-    st.subheader(f"{sla5}")
+    st.subheader(f"{sla55 / len(df):.0%}")
+    
+    
+    
+    
+    
 
 st.markdown("""---""")
 
