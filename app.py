@@ -251,7 +251,6 @@ fig_ticket_by_sla = px.scatter(
     ticket_by_sla,
     x=ticket_by_sla.index,
     y="ticket number",
-    text="ticket number",
     orientation="v",
     title="<b>Tickets by sla</b>",
     color_discrete_sequence=["#0083B8"] * len(ticket_by_sla),
