@@ -707,7 +707,7 @@ pivot.fillna(0, inplace=True)
 #HEATMAP
 
 
-fig = px.imshow(pivot, text_auto=True, aspect="auto")
+fig = px.imshow(pivot, aspect="auto")
 
 #fig = px.imshow(pivot)
 
