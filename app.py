@@ -706,6 +706,11 @@ pivot.fillna(0, inplace=True)
 
 #HEATMAP
 
+pivot = pivot.style.format('{:.0}')\
+.format('{:.0f}', subset=['total'])\
+.background_gradient(cmap='ocean_r')
+
+
 
 st.dataframe(pivot)
 
