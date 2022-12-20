@@ -198,7 +198,7 @@ with right_column:
 
 st.markdown("""---""")
 
-#SALES BY PRODUCT LINE [BAR CHART]
+#[BAR CHART]
 
 
 def sla_category(time):
@@ -595,6 +595,9 @@ st.dataframe(pivot)
 
 
 
+
+
+
 chart_data = pivot
 
 st.area_chart(chart_data)
@@ -700,9 +703,15 @@ pivot = pd.pivot_table(df6, index='date', columns='hour', values='+date', aggfun
 pivot.fillna(0, inplace=True)
 
 
+
+#HEATMAP
+
+
+fig = px.imshow(pivot, text_auto=True, aspect="auto")
+
 #fig = px.imshow(pivot)
 
-#st.plotly_chart(fig)
+st.plotly_chart(fig, theme="streamlit")
 #st.dataframe(pivot)
 
 
