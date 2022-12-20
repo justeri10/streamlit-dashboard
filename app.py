@@ -811,7 +811,7 @@ df['date of the first response'] = df['date of the first response'].astype('str'
 def sla_category(bad_time):
      
     if bad_time < '00:05:00':
-        return '5 minutes'
+        return '+5 minutes'
     elif bad_time <= '00:15:00':
         return '15 minutes'
     elif bad_time <= '00:30:00':
@@ -826,7 +826,7 @@ def sla_category(bad_time):
         return 'неизвестно'
 
 df['+5'] = df['date of the first response'].apply(sla_category)
-df8 = df.loc[df['+5'].isin(['15 minutes', '30 minutes', '45 minutes', '60 minutes','61 minutes and more'])]
+df8 = df.loc[df['+5'].isin(['15 minutes', '30 minutes', '45 minutes', '60 minutes','61 minutes and more','неизвестно'])]
 pivot = pd.pivot_table(df8, index='agent', values='+5',aggfunc='count')
 pivot.sort_values(by='+5', ascending=True, inplace=True)
 pivot = pivot.style.format('{:.0}')\
