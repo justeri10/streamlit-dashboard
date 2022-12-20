@@ -820,8 +820,8 @@ df['date of the first response'] = df['date of the first response'].astype('str'
 
 def sla_category(bad_time):
      
-    if bad_time < '00:05:00':
-        return '+5 minutes'
+    if bad_time <= '00:05:00':
+        return '5 minutes'
     elif bad_time <= '00:15:00':
         return '15 minutes'
     elif bad_time <= '00:30:00':
@@ -837,6 +837,17 @@ def sla_category(bad_time):
 
 df['+5'] = df['date of the first response'].apply(sla_category)
 df8 = df.loc[df['+5'].isin(['15 minutes', '30 minutes', '45 minutes', '60 minutes','61 minutes and more'])]
+
+df10 = df8[['ticket number','agent','topics', 'subtopics', '+5']]
+
+st.text( f"Total tickets with sla +5 minutes: {len(df10)}")
+
+df10.sort_values(by='agent', ascending=True, inplace=True)
+
+st.dataframe(df10)
+
+
+
 pivot = pd.pivot_table(df8, index='agent', values='+5',aggfunc='count')
 pivot.sort_values(by='+5', ascending=True, inplace=True)
 pivot = pivot.style.format('{:.0}')\
@@ -846,15 +857,9 @@ pivot = pivot.style.format('{:.0}')\
 st.dataframe(pivot)
 
 
-df10 = df[['ticket number','agent','topics', 'subtopics', '+5']]
 
-st.text( f"Total tickets with sla +5 minutes: {len(df8)}")
 
-#st.text( f"Total tickets with sla +5 minutes + non answered: {len(df10)}")
 
-df10.sort_values(by='agent', ascending=True, inplace=True)
-
-st.dataframe(df10)
 
 
 
