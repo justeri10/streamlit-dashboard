@@ -13,7 +13,7 @@ import streamlit.components.v1 as components
 
 st.set_page_config(
 page_title = "Everyone Can Support",
-page_icon = ":pencil:",
+page_icon = ":phone:",
 )
 
 # emojis: https://www.webfx.com/tools/emoji-cheat-sheet/
