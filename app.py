@@ -6,8 +6,15 @@ import pandas as pd  # pip install pandas openpyxl
 import plotly.express as px  # pip install plotly-express
 import plotly.figure_factory as ff
 import streamlit as st  # pip install streamlit
+import streamlit.components.v1 as components
 
 
+#components.html(""" """, height=100,)
+
+st.set_page_config(
+page_title = "Everyone Can Support",
+page_icon = ":pencil:",
+)
 
 # emojis: https://www.webfx.com/tools/emoji-cheat-sheet/
 #st.set_page_config(page_title="Dashboard", page_icon=":bar_chart:", layout="wide")
@@ -18,7 +25,7 @@ def get_data_from_excel():
     df = pd.read_excel(
         io="Report_status_2022-12-13_2022-12-19_1671546653.xlsx",
         engine="openpyxl",
-        #sheet_name="Sales",
+        #sheet_name="",
         skiprows=0,
         #usecols="B:R",
         #nrows=1000,
@@ -715,7 +722,7 @@ st.text(f"Heatmap by date:")
 
 pivot = pd.pivot_table(df6, index='date', columns='hour', values='+date', aggfunc='count')
 pivot.fillna(0, inplace=True)
-
+#pivot.sort_values(by='total', ascending=False, inplace=True)
 
 
 #HEATMAP
@@ -872,6 +879,9 @@ st.dataframe(pivot)
 
 
 # ---- HIDE STREAMLIT STYLE ----
+
+
+
 hide_st_style = """
             <style>
             #MainMenu {visibility: hidden;}
