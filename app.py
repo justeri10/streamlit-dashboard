@@ -600,6 +600,10 @@ chart_data = pivot
 st.area_chart(chart_data)
 
 
+
+
+
+
 names = sorted([
     'Roxana Hernández',
     'Christian Sanchez',
