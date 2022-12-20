@@ -707,11 +707,11 @@ pivot.fillna(0, inplace=True)
 #HEATMAP
 
 
-fig = px.imshow(pivot, aspect="auto")
+st.dataframe(pivot)
 
 #fig = px.imshow(pivot)
 
-st.plotly_chart(fig, theme="streamlit")
+
 #st.dataframe(pivot)
 
 
