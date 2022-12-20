@@ -700,9 +700,9 @@ pivot = pd.pivot_table(df6, index='date', columns='hour', values='+date', aggfun
 pivot.fillna(0, inplace=True)
 
 
-fig = px.imshow(pivot)
+#fig = px.imshow(pivot)
 
-st.plotly_chart(fig, theme='streamlit')
+#st.plotly_chart(fig)
 #st.dataframe(pivot)
 
 
