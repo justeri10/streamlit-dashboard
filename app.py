@@ -16,7 +16,7 @@ import streamlit as st  # pip install streamlit
 @st.cache(allow_output_mutation=True)
 def get_data_from_excel():
     df = pd.read_excel(
-        io="Report_status_2022-12-06_2022-12-12_1670931435.xlsx",
+        io="Report_status_2022-12-13_2022-12-19_1671546653.xlsx",
         engine="openpyxl",
         #sheet_name="Sales",
         skiprows=0,
@@ -57,7 +57,7 @@ df = df.query(
         
         # ---- MAINPAGE ----
 st.title("Dashboard")
-st.text("Report_status_2022-12-06_2022-12-12_1670931435.xlsx")
+st.text("Report_status_2022-12-13_2022-12-19_1671546653.xlsx")
 st.markdown("##")
 
 # TOP KPI's
@@ -687,7 +687,7 @@ df['date'] = df['date'].astype('str').str[-8:]
 
 def date_category(bad_date):
      
-    if bad_date < '22-12-06':
+    if bad_date < '22-12-13':
         return 'date out of frame'   
     else:
         return 'date on frame'
@@ -826,7 +826,7 @@ def sla_category(bad_time):
         return 'неизвестно'
 
 df['+5'] = df['date of the first response'].apply(sla_category)
-df8 = df.loc[df['+5'].isin(['15 minutes', '30 minutes', '45 minutes', '60 minutes','61 minutes and more','неизвестно'])]
+df8 = df.loc[df['+5'].isin(['15 minutes', '30 minutes', '45 minutes', '60 minutes','61 minutes and more'])]
 pivot = pd.pivot_table(df8, index='agent', values='+5',aggfunc='count')
 pivot.sort_values(by='+5', ascending=True, inplace=True)
 pivot = pivot.style.format('{:.0}')\
@@ -836,13 +836,13 @@ pivot = pivot.style.format('{:.0}')\
 st.dataframe(pivot)
 
 
-df9 = df[['ticket number','agent','topics', 'subtopics', '+5']]
+#df8 = df[['ticket number','agent','topics', 'subtopics', '+5']]
 
 st.text( f"Total tickets with sla +5 minutes: {len(df8)}")
 
-df9.sort_values(by='agent', ascending=True, inplace=True)
+df8.sort_values(by='agent', ascending=True, inplace=True)
 
-st.dataframe(df9)
+st.dataframe(df8)
 
 
 
