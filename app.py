@@ -14,6 +14,7 @@ import streamlit.components.v1 as components
 st.set_page_config(
 page_title = "Everyone Can Support",
 page_icon = ":phone:",
+#initial_sidebar_state="expanded",
 )
 
 # emojis: https://www.webfx.com/tools/emoji-cheat-sheet/
@@ -38,7 +39,29 @@ def get_data_from_excel():
 
 
 df = get_data_from_excel()
+st.title("Dashboard")
 
+#uploaded_file = st.file_uploader("Please choose a file")
+
+#if uploaded_file is not None:
+    # To read file as bytes:
+    #bytes_data = uploaded_file.getvalue()
+    #st.write(bytes_data)
+
+    # To convert to a string based IO:
+    #stringio = StringIO(uploaded_file.getvalue().decode("utf-8"))
+    #st.write(stringio)
+
+    # To read file as string:
+    #string_data = stringio.read()
+    #st.write(string_data)
+
+    # Can be used wherever a "file-like" object is accepted:
+#    df = pd.read_csv(uploaded_file)
+#else:
+#    st.stop()
+    #st.write(dataframe)
+    #pd.read_csv
 #st.dataframe(df)
 
 
@@ -47,7 +70,7 @@ df = get_data_from_excel()
 
 
 
-st.sidebar.header("Please Filter Here:")
+st.sidebar.header("Please filter Here:")
 
 language = st.sidebar.multiselect(
     "Select the language:",
@@ -63,8 +86,8 @@ df = df.query(
 
         
         # ---- MAINPAGE ----
-st.title("Dashboard")
-st.text("Report_status_2022-12-13_2022-12-19_1671546653.xlsx")
+
+#st.text("Report_status_2022-12-13_2022-12-19_1671546653.xlsx")
 st.markdown("##")
 
 # TOP KPI's
@@ -724,16 +747,22 @@ pivot = pd.pivot_table(df6, index='date', columns='hour', values='+date', aggfun
 pivot.fillna(0, inplace=True)
 #pivot.sort_values(by='total', ascending=False, inplace=True)
 
+piv =  px.imshow(pivot)
+
+st.write(piv)
+
 
 #HEATMAP
 
-pivot = pivot.style.format('{:.0}')\
-.format('{:.0f}')\
-.background_gradient(cmap='ocean_r')
+#pivot = pivot.style.format('{:.0}')\
+#.format('{:.0f}')\
+#.background_gradient(cmap='ocean_r')
 
 
 
-st.dataframe(pivot)
+#st.dataframe(pivot)
+
+
 
 #fig = px.imshow(pivot)
 
