@@ -769,9 +769,9 @@ pivot.fillna(0, inplace=True)
 
 
 
-#piv =  px.imshow(pivot)
+piv =  px.imshow(pivot)
 
-#st.write(piv)
+st.write(piv)
 
 #HEATMAP
 
