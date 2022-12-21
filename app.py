@@ -747,16 +747,16 @@ pivot = pd.pivot_table(df6, index='date', columns='hour', values='+date', aggfun
 pivot.fillna(0, inplace=True)
 #pivot.sort_values(by='total', ascending=False, inplace=True)
 
-#piv =  px.imshow(pivot)
+piv =  px.imshow(pivot, text_auto=False, aspect="auto")
 
 #st.write(piv)
-
+st.plotly_chart(piv, theme="streamlit")
 
 #HEATMAP
 
 pivot = pivot.style.format('{:.0}')\
 .format('{:.0f}')\
-.background_gradient(cmap='ocean_r')
+.background_gradient(cmap='Blues')
 
 
 
