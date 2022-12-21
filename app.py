@@ -761,11 +761,11 @@ pivot.fillna(0, inplace=True)
 
 
 
-@st.experimental_memo
-def get_chart_8045850():
-    import plotly.express as px
-fig = px.imshow(pivot)
-st.plotly_chart(fig, theme="streamlit")
+#@st.experimental_memo
+#def get_chart_8045850():
+#    import plotly.express as px
+#fig = px.imshow(df6, text_auto=True)
+#st.plotly_chart(fig, theme="streamlit")
 
 
 
