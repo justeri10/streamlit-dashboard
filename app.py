@@ -747,9 +747,9 @@ pivot = pd.pivot_table(df6, index='date', columns='hour', values='ticket number'
 pivot.fillna(0, inplace=True)
 #pivot.sort_values(by='total', ascending=False, inplace=True)
 
-piv =  px.imshow(pivot)
+#piv =  px.imshow(pivot)
 
-st.write(piv)
+#st.write(piv)
 
 
 #HEATMAP
