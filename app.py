@@ -764,7 +764,7 @@ pivot.fillna(0, inplace=True)
 @st.experimental_memo
 def get_chart_8045850():
     import plotly.express as px
-fig = px.imshow(pivot, text_auto=True)
+fig = px.imshow(pivot)
 st.plotly_chart(fig, theme="streamlit")
 
 
