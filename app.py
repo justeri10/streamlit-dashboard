@@ -747,20 +747,20 @@ pivot = pd.pivot_table(df6, index='date', columns='hour', values='+date', aggfun
 pivot.fillna(0, inplace=True)
 #pivot.sort_values(by='total', ascending=False, inplace=True)
 
-piv =  px.imshow(pivot)
+#piv =  px.imshow(pivot)
 
-st.write(piv)
+#st.write(piv)
 
 
 #HEATMAP
 
-#pivot = pivot.style.format('{:.0}')\
-#.format('{:.0f}')\
-#.background_gradient(cmap='ocean_r')
+pivot = pivot.style.format('{:.0}')\
+.format('{:.0f}')\
+.background_gradient(cmap='ocean_r')
 
 
 
-#st.dataframe(pivot)
+st.dataframe(pivot)
 
 
 
