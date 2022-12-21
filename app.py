@@ -745,15 +745,29 @@ st.text(f"Heatmap by date:")
 
 
 
-#@st.experimental_memo
-#def get_chart_8045850():
-#    import plotly.express as px
-#fig = px.imshow(df6, text_auto=True)
-#st.plotly_chart(fig, theme="streamlit")
+
+
+
+
+
+
+
+
+
 
 pivot = pd.pivot_table(df6, index='date', columns='hour', values='ticket number', aggfunc='count')
 pivot.fillna(0, inplace=True)
 #pivot.sort_values(by='total', ascending=False, inplace=True)
+
+
+
+@st.experimental_memo
+def get_chart_8045850():
+    import plotly.express as px
+fig = px.imshow(pivot, text_auto=True)
+st.plotly_chart(fig, theme="streamlit")
+
+
 
 #piv =  px.imshow(pivot)
 
