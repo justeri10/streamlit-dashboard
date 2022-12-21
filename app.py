@@ -771,17 +771,17 @@ pivot.fillna(0, inplace=True)
 
 piv =  px.imshow(pivot)
 
-st.write(piv)
+st.plotly_chart(piv, theme="streamlit")
 
 #HEATMAP
 
-pivot = pivot.style.format('{:.0}')\
-.format('{:.0f}')\
-.background_gradient(cmap='ocean_r')
+#pivot = pivot.style.format('{:.0}')\
+#.format('{:.0f}')\
+#.background_gradient(cmap='ocean_r')
 
 
 
-st.dataframe(pivot)
+#st.dataframe(pivot)
 
 
 
