@@ -9,6 +9,7 @@ import streamlit as st  # pip install streamlit
 import streamlit.components.v1 as components
 
 
+
 #components.html(""" """, height=100,)
 
 st.set_page_config(
@@ -82,7 +83,15 @@ df = df.query(
     "language == @language"
 )
 
+st.snow()
 
+#import time
+
+#my_bar = st.progress(0)
+
+#for percent_complete in range(100):
+#    time.sleep(0.09)
+#    my_bar.progress(percent_complete + 1)
 
         
         # ---- MAINPAGE ----
@@ -759,19 +768,9 @@ pivot = pd.pivot_table(df6, index='date', columns='hour', values='ticket number'
 pivot.fillna(0, inplace=True)
 #pivot.sort_values(by='total', ascending=False, inplace=True)
 
-
-
-#@st.experimental_memo
-#def get_chart_8045850():
-#    import plotly.express as px
-#fig = px.imshow(df6, text_auto=True)
-#st.plotly_chart(fig, theme="streamlit")
-
-
-
 piv =  px.imshow(pivot)
 
-st.plotly_chart(piv, theme="streamlit")
+st.plotly_chart(piv, theme=None)
 
 #HEATMAP
 
