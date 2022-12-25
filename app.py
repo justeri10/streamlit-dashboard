@@ -83,7 +83,7 @@ df = df.query(
     "language == @language"
 )
 
-st.snow()
+
 
 #import time
 
