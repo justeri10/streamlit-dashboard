@@ -1,3 +1,4 @@
+
 import numpy as np
 import matplotlib.colors as mcolors
 import matplotlib.pyplot as plt
@@ -71,19 +72,41 @@ st.title("Dashboard")
 
 
 
-st.sidebar.header("Please filter Here:")
+#st.sidebar.header("Please filter Here:")
 
-language = st.sidebar.multiselect(
+#language = st.sidebar.multiselect(
+#    "Select the language:",
+#    options=df["language"].unique(),
+#    default=df["language"].unique()
+#)
+#
+#
+#df = df.query(
+#            "language == @language"
+#        )
+
+
+with st.form("my_form"):
+    language = st.multiselect(
     "Select the language:",
     options=df["language"].unique(),
     default=df["language"].unique()
 )
+    submitted = st.form_submit_button("Submit")
+    if submitted:
+        df = df.query(
+            "language == @language"
+        )
+    else:
+        st.stop()
 
-df = df.query(
-    "language == @language"
-)
 
 
+
+        
+        
+        
+        
 
 #import time
 
@@ -938,14 +961,7 @@ hide_st_style = """
             header {visibility: hidden;}
             </style>
             """
-st.markdown(hide_st_style, unsafe_allow_html=True)
-        
-        
-        
-        
-        
-        
-        
+st.markdown(hide_st_style, unsafe_allow_html=True)  
         
     
             
