@@ -10,6 +10,12 @@ import streamlit as st  # pip install streamlit
 import streamlit.components.v1 as components
 
 
+#import pdfkit
+#from jinja2 import Environment, PackageLoader, select_autoescape, FileSystemLoader
+#from datetime import date
+#from streamlit.components.v1 import iframe
+
+
 
 #components.html(""" """, height=100,)
 
@@ -943,6 +949,48 @@ pivot = pivot.style.format('{:.0}')\
 .background_gradient(cmap='ocean_r', subset=['+5'])
 
 st.dataframe(pivot)
+
+
+
+
+
+
+
+
+
+
+#st.write(
+#    "Take your pdf here"
+#)
+
+
+#env = Environment(loader=FileSystemLoader("."), autoescape=select_autoescape())
+#template = env.get_template("template.html")
+
+
+#grade = form.slider("Grade", 1, 100, 60)
+#submit = form.form_submit_button("Generate PDF")
+
+#if submit:
+#    html = template.render(
+#        student=student,
+#        course=course,
+#        grade=f"{grade}/100",
+#        date=date.today().strftime("%B %d, %Y"),
+#    )
+
+#    pdf = pdfkit.from_string(html, False)
+
+
+#    right.success("🎉 Your report was generated!")
+    # st.write(html, unsafe_allow_html=True)
+    # st.write("")
+#    right.download_button(
+#        "⬇️ Download PDF",
+#        data=pdf,
+#        file_name="report.pdf",
+#        mime="application/octet-stream",
+#    )
 
 
 
