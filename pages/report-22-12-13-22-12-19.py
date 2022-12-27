@@ -32,7 +32,7 @@ page_icon = ":phone:",
 @st.cache(allow_output_mutation=True)
 def get_data_from_excel():
     df = pd.read_excel(
-        io="Report_status_2022-12-13_2022-12-19_1671546653.xlsx",
+        io="reports/Report_status_2022-12-13_2022-12-19_1671546653.xlsx",
         engine="openpyxl",
         #sheet_name="",
         skiprows=0,
