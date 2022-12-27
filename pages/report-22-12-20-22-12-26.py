@@ -47,7 +47,7 @@ def get_data_from_excel():
 
 
 df = get_data_from_excel()
-st.title("Dashboard")
+st.subheader("Dashboard")
 st.text("Report_status_2022-12-20_2022-12-26_1672130006.xlsx")
 
 #uploaded_file = st.file_uploader("Please choose a file")
