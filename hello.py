@@ -8,4 +8,4 @@ page_icon = ":phone:",
 )
 
 
-st.write("# Welcome to support reports dashboard!")
+st.subheader("Welcome to support reports dashboard!")
