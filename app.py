@@ -26,7 +26,7 @@ page_icon = ":phone:",
 @st.cache(allow_output_mutation=True)
 def get_data_from_excel():
     df = pd.read_excel(
-        io="Report_status_2022-12-13_2022-12-19_1671546653.xlsx",
+        io="Report_status_2022-12-20_2022-12-26_1672130006.xlsx",
         engine="openpyxl",
         #sheet_name="",
         skiprows=0,
@@ -42,6 +42,7 @@ def get_data_from_excel():
 
 df = get_data_from_excel()
 st.title("Dashboard")
+st.text("Report_status_2022-12-20_2022-12-26_1672130006.xlsx")
 
 #uploaded_file = st.file_uploader("Please choose a file")
 
@@ -99,6 +100,7 @@ with st.form("my_form"):
         )
     else:
         st.stop()
+        
 
 
 
@@ -763,7 +765,7 @@ df['date'] = df['date'].astype('str').str[-8:]
 
 def date_category(bad_date):
      
-    if bad_date < '22-12-13':
+    if bad_date < '22-12-20':
         return 'date out of frame'   
     else:
         return 'date on frame'
@@ -906,7 +908,7 @@ df['date of the first response'] = df['date of the first response'].astype('str'
 
 def sla_category(bad_time):
      
-    if bad_time <= '00:05:00':
+    if bad_time < '00:05:00':
         return '5 minutes'
     elif bad_time <= '00:15:00':
         return '15 minutes'
