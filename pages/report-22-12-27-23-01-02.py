@@ -1,5 +1,5 @@
 
-#import numpy as np
+import numpy as np
 import matplotlib.colors as mcolors
 import matplotlib.pyplot as plt
 import openpyxl as op
@@ -987,9 +987,11 @@ st.dataframe(pivot)
 #    )
 
 
+#import warnings
 
-
-
+#with warnings.catch_warnings():
+#    warnings.simplefilter("ignore", category=RuntimeWarning)
+#    foo = np.nanmean(df)
 
 
 
