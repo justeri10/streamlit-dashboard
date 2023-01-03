@@ -107,16 +107,8 @@ with st.form("my_form"):
         
     else:
         st.stop()
+         
         
-
-
-
-
-        
-        
-        
-        
-
 #import time
 
 #my_bar = st.progress(0)
@@ -201,7 +193,7 @@ def sla_category(time):
         return '45 minutes'
     elif time <= '01:00:00':
         return '60 minutes'
-    elif time <= '23:00:00':
+    elif time <= '23:59:00':
         return '61 minutes and more'
     else:
         return 'неизвестно'
@@ -554,7 +546,7 @@ def sla_category(time):
         return '45 minutes'
     elif time <= '1:00:00':
         return '60 minutes'
-    elif time <= '23:00:00':
+    elif time <= '23:59:00':
         return '61 minutes and more'
     else:
         return 'неизвестно'
@@ -926,7 +918,7 @@ def sla_category(bad_time):
         return '45 minutes'
     elif bad_time <= '01:00:00':
         return '60 minutes'
-    elif bad_time <= '23:00:00':
+    elif bad_time <= '23:59:00':
         return '61 minutes and more'   
     else:
         return 'неизвестно'
