@@ -13,5 +13,3 @@ ctrl-c
 # streamlit-dashboard
 
 
-
-https://www.buymeacoffee.com/ustyuzhaniX
