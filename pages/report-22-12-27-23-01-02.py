@@ -269,7 +269,7 @@ with right_column:
 st.markdown("""---""")
 
 
-st.text("Efective solution")
+st.text("Efective solution >= 60 minutes (26 Tickets) NM Brazil")
 st.text("Efective_solution_2022-12-27_2023-01-02.xlsx")
  
 st.dataframe(dfs) 
