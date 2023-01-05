@@ -274,8 +274,8 @@ st.text("Efective_solution_2022-12-27_2023-01-02.xlsx")
 
 
 
-#st.dataframe(dfs) 
-st.dataframe(data=dfs, width=300, height=300, use_container_width=True)
+st.dataframe(dfs) 
+#st.dataframe(data=dfs, width=300, height=300, use_container_width=True)
 
 
 
