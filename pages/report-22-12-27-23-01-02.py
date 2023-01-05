@@ -16,7 +16,6 @@ import streamlit.components.v1 as components
 #from streamlit.components.v1 import iframe
 
 
-
 #components.html(""" """, height=100,)
 
 st.set_page_config(
@@ -46,36 +45,35 @@ def get_data_from_excel():
 
 
 
+def get_data_from_excel1():
+    dfs = pd.read_excel(
+        io="reports/efective-solution/Efective_solution_2022-12-27_2023-01-02.xlsx",
+        engine="openpyxl",
+        #sheet_name="",
+        skiprows=0,
+        #usecols="B:R",
+        #nrows=1000,
+    )
+    
+    # Add 'hour' column to dataframe
+    #df["hour"] = pd.to_datetime(df["receiving time"]).dt.hour
+    return dfs
+
+
+
+dfs = get_data_from_excel1()
 df = get_data_from_excel()
 st.subheader("Dashboard")
 st.text("Report_status_2022-12-27_2023-01-02_1672746312.xlsx")
 
-#uploaded_file = st.file_uploader("Please choose a file")
-
-#if uploaded_file is not None:
-    # To read file as bytes:
-    #bytes_data = uploaded_file.getvalue()
-    #st.write(bytes_data)
-
-    # To convert to a string based IO:
-    #stringio = StringIO(uploaded_file.getvalue().decode("utf-8"))
-    #st.write(stringio)
-
-    # To read file as string:
-    #string_data = stringio.read()
-    #st.write(string_data)
-
-    # Can be used wherever a "file-like" object is accepted:
-#    df = pd.read_csv(uploaded_file)
-#else:
-#    st.stop()
-    #st.write(dataframe)
-    #pd.read_csv
-#st.dataframe(df)
-
 
 
 # ---- SIDEBAR ----
+
+
+
+
+
 
 
 
@@ -249,6 +247,7 @@ meantime_str = change_timedelta_to_normal(meantime)
 
 #print(sla5)
 
+st.markdown("""---""")
 
 
 left_column, middle_column, right_column = st.columns(3)
@@ -268,6 +267,14 @@ with right_column:
     
 
 st.markdown("""---""")
+
+
+st.text("Efective solution")
+st.text("Efective_solution_2022-12-27_2023-01-02.xlsx")
+ 
+st.dataframe(dfs) 
+
+#st.dataframe(data=dfs, width=1000, height=1000, use_container_width=True)
 
 #[BAR CHART]
 
@@ -778,17 +785,6 @@ df6 = df.loc[df['+date'].isin(['date on frame'])]
 st.text(f"Heatmap by date:")
 
 
-
-
-
-
-
-
-
-
-
-
-
 pivot = pd.pivot_table(df6, index='date', columns='hour', values='ticket number', aggfunc='count')
 pivot.fillna(0, inplace=True)
 #pivot.sort_values(by='total', ascending=False, inplace=True)
@@ -943,13 +939,6 @@ pivot = pivot.style.format('{:.0}')\
 .background_gradient(cmap='ocean_r', subset=['+5'])
 
 st.dataframe(pivot)
-
-
-
-
-
-
-
 
 
 
